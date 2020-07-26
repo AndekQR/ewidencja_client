@@ -1,0 +1,12 @@
+Button {
+    margin: 10px !important;
+}
+
+Button.yellowButton {
+  background-color: yellow;
+
+}
+
+Button.yellowButton:hover {
+  background-color: #ffd95a;
+}

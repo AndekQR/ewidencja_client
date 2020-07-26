@@ -1,0 +1,50 @@
+/* .tg {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.thInsideTg {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  padding: 10px 5px;
+  border-style: solid;
+  border-width: 2px;
+  overflow: hidden;
+  word-break: normal;
+  border-color: black;
+}
+
+.td {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  padding: 10px 5px;
+  border-style: solid;
+  border-width: 1px;
+  overflow: hidden;
+  word-break: normal;
+  border-color: black;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.thOpkyInsideTg {
+  border-color: inherit;
+  text-align: center;
+  vertical-align: middle;
+} */
+
+
+.table {
+  margin-top: 15px;
+}
+
+.MuiTableCell-alignRight {
+  text-align: center !important;
+}
+
+.alert {
+  position: fixed;
+  bottom: 10px;
+}
