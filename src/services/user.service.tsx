@@ -1,5 +1,5 @@
 import { credentialsConstants } from "../helpers/credentials.constants";
-import { secureAxios, insecureAxios } from "../helpers/axiosInstances";
+import { axiosInstance } from "../helpers/axiosInstances";
 import { User } from "../interfaces/User";
 import Credentials from "../interfaces/Credentials";
 
@@ -10,7 +10,7 @@ export const userService = {
 };
 
 function login(username: string, password: string) {
-  return insecureAxios()
+  return axiosInstance(false, false)
     .post("/auth/login", {
       username,
       password,
@@ -23,16 +23,11 @@ function login(username: string, password: string) {
 }
 
 export function refreshToken() {
-  return secureAxios()
+
+  return axiosInstance(false, true)
     .post(
       "/auth/refreshToken",
-      { refreshToken: credentialsConstants.get().refreshToken },
-      {
-        headers: { 
-          "Content-Type": "application/json",
-          Authorization: ""
-       },
-      }
+      { refreshToken: credentialsConstants.get().refreshToken }
     )
     .then((response) => {
       if (response.status === 200) {
@@ -50,7 +45,7 @@ export function refreshToken() {
 }
 
 export function logout() {
-  return secureAxios()
+  return axiosInstance(true, true)
     .get("/auth/logout")
     .then((_) => {
       credentialsConstants.remove();
@@ -59,7 +54,7 @@ export function logout() {
 }
 
 function register(user: User, password: string) {
-  return insecureAxios()
+  return axiosInstance(false, false)
     .post("/auth/register", {...user, password})
     .catch((error) => {
       console.log(error);

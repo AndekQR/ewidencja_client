@@ -1,8 +1,4 @@
-import {
-  EventActionsTypes,
-  SAVE_EVENT,
-  GET_ALL_EVENTS,
-} from "../../helpers/event.constants";
+import {EventActions, EventActionsTypes,} from "../../helpers/event.constants";
 import Event from "../../interfaces/Event";
 
 export interface EventState {
@@ -17,17 +13,23 @@ const initialState: EventState = {
 
 export function eventReducer(state = initialState, action: EventActionsTypes): EventState {
   switch (action.type) {
-    case SAVE_EVENT: {
+    case EventActions.SAVE_EVENT: {
       return {
         ...state,
         lastEvent: action.event,
       };
     }
-    case GET_ALL_EVENTS: {
+    case EventActions.GET_ALL_EVENTS: {
       return {
         ...state,
         allEvents: [...action.events],
       };
+    }
+    case EventActions.SAVE_ALL_EVENTS: {
+      return {
+          ...state,
+        allEvents: [...action.events]
+      }
     }
     default: {
       return state;
